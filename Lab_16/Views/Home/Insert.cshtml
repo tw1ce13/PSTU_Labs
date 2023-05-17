@@ -1,0 +1,170 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="selecter">
+    <select id="select" name="select">
+        <option>Выберите категорию:</option>
+        <option value="place">Place</option>
+        <option value="city">City</option>
+        <option value="address">Address</option>
+        <option value="area">Area</option>
+        <option value="megapolis">Megapolis</option>
+    </select>
+</div>
+
+<div class="forms">
+    <form id="form_place" class="hidden" action="@Url.Action("AddPlace","Home")" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="id">Id:</label>
+        <input type="text" id="id" name="id">
+        <button type="submit">Save</button>
+    </form>
+
+
+    <form id="form_city" class="hidden" action="@Url.Action("AddCity","Home")" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="id">Id:</label>
+        <input type="text" id="id" name="id">
+        <button type="submit">Save</button>
+    </form>
+
+
+
+    <form id="form_address" class="hidden" action="@Url.Action("AddAddress","Home")" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="id">Id:</label>
+        <input type="text" id="id" name="id">
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street">
+        <label for="numbHome">NumbHome:</label>
+        <input type="text" id="numbHome" name="numbHome">
+        <button type="submit">Save</button>
+    </form>
+
+
+
+    <form id="form_area" class="hidden" action="@Url.Action("AddArea","Home")" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="id">Id:</label>
+        <input type="text" id="id" name="id">
+        <label for="longetuide">Longuitude:</label>
+        <input type="text" id="longetuide" name="longetuide">
+        <label for="width">Width:</label>
+        <input type="text" id="width" name="width">
+        <button type="submit">Save</button>
+    </form>
+
+
+
+    <form id="form_megapolis" class="hidden" action="@Url.Action("AddMegapolis","Home")" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="id">Id:</label>
+        <input type="text" id="id" name="id">
+        <label for="budjet">Budjet:</label>
+        <input type="text" id="budjet" name="budjet">
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+
+<div class="message">@ViewBag.Message</div>
+
+
+<script>// При загрузке страницы скрываем форму
+    $(document).ready(function () {
+        $('#form_place').hide();
+        $('#form_city').hide();
+        $('#form_area').hide();
+        $('#form_address').hide();
+        $('#form_megapolis').hide();
+    });
+
+    // При изменении значения в select показываем или скрываем форму
+    $('#select').change(function () {
+        if ($(this).val() === 'place') {
+            $('#form_place').show();
+        } else {
+            $('#form_place').hide();
+        }
+        if ($(this).val() === 'city') {
+            $('#form_city').show();
+        } else {
+            $('#form_city').hide();
+        }
+        if ($(this).val() === 'area') {
+            $('#form_area').show();
+        } else {
+            $('#form_area').hide();
+        }
+        if ($(this).val() === 'address') {
+            $('#form_address').show();
+        } else {
+            $('#form_address').hide();
+        }
+        if ($(this).val() === 'megapolis') {
+            $('#form_megapolis').show();
+        } else {
+            $('#form_megapolis').hide();
+        }
+    });
+    </script>
+
+<style>
+ .message
+ {
+     margin-left:25px;
+     color:green;
+     font-size:larger;
+ }
+
+.forms
+{
+    margin-top:25px;
+    margin-left:25px;
+    
+}
+    form {
+        margin-left 25px;
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 10px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    button[type="submit"] {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #0062cc;
+        }
+
+    .hidden {
+        display: none;
+    }
+
+</style>

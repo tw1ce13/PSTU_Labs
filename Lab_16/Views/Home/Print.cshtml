@@ -1,0 +1,77 @@
+﻿@using Laba_12;
+@model IEnumerable<Place>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        margin-left:10px;
+        padding: 8px;
+        text-align: left;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    tr {
+        width:100%;
+    }
+
+    label {
+        font-weight: bold;
+    }
+</style>
+
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <label>ID:</label>
+                <span>@item.Id</span>
+            </td>
+            <td>
+                <label>Name:</label>
+                <span>@item.Name</span>
+            </td>
+
+            @if (item is Megapolis mega)
+            {
+                <td>
+                    <label>Budget:</label>
+                    <span>@mega.Budjet</span>
+                </td>
+            }
+            else if (item is Area area)
+            {
+                <td>
+                    <label>Longitude:</label>
+                    <span>@area.Longuitude</span>
+                </td>
+                <td>
+                    <label>Width:</label>
+                    <span>@area.Width</span>
+                </td>
+            }
+            else if (item is Address address)
+            {
+                <td>
+                    <label>NumbHome:</label>
+                    <span>@address.NumbHome.</span>
+                </td>
+                <td>
+                    <label>Street:</label>
+                    <span>@address.Street</span>
+                </td>
+            }
+        </tr>
+    }
+</table>

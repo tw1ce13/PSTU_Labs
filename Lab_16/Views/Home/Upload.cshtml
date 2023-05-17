@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" action="@Url.Action("UploadFile", "Home")" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit">Загрузить</button>
+</form>
+<style>
+    form {
+        margin-left:25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    input[type="file"] {
+        border: none;
+        margin: 10px;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+</style>
